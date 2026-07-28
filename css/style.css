@@ -902,3 +902,178 @@ section { padding: 5rem 7vw; }
   .cart-item-price { grid-column: 1; }
   .cart-item-del { position: absolute; right: 0; top: 0.8rem; }
 }
+
+/* ============================================================
+   SCROLL NARRATIVO — historias, reveals y hero inmersivo
+   ============================================================ */
+
+/* ---------- Reveals genéricos ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Hero inmersivo ---------- */
+.hero {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  transition: transform 0.1s linear;
+  will-change: transform, opacity;
+}
+
+.hero-bg.kenburns {
+  animation: kenburns 26s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+  from { background-size: cover; transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.hero-content {
+  max-width: 720px;
+  padding-top: 18vh;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+}
+
+/* Indicador de scroll */
+.scroll-cue {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 46px;
+  border: 2px solid var(--terra);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  opacity: 0.8;
+}
+
+.scroll-cue span {
+  width: 4px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--terra);
+  animation: cue 1.6s ease-in-out infinite;
+}
+
+@keyframes cue {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+/* ---------- Historias (sticky + texto) ---------- */
+.stories { padding: 7rem 7vw 5rem; }
+
+.stories-intro { max-width: 720px; margin-bottom: 5rem; }
+
+.stories-intro h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  line-height: 1.12;
+  color: var(--ink);
+}
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+  padding: 4rem 0;
+}
+
+.story-visual {
+  position: sticky;
+  top: 12vh;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(62, 53, 48, 0.16);
+}
+
+.story-visual img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.story-alt .story-visual { order: 2; }
+
+.story-alt .story-text { order: 1; }
+
+.story-text { padding-top: 12vh; padding-bottom: 12vh; }
+
+.story-num {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-style: italic;
+  color: var(--sand);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.story-text h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  color: var(--terra);
+  margin-bottom: 1rem;
+}
+
+.story-lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+.story-text p:not(.story-num):not(.story-lead) {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  max-width: 460px;
+  margin-bottom: 1.6rem;
+}
+
+.story-link {
+  color: var(--terra);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--sand);
+  padding-bottom: 3px;
+  transition: border-color 0.2s;
+}
+
+.story-link:hover { border-color: var(--terra); }
+
+/* ---------- Responsivo historias ---------- */
+@media (max-width: 860px) {
+  .story { grid-template-columns: 1fr; padding: 2.5rem 0; gap: 1.6rem; }
+  .story-visual { position: relative; top: 0; max-width: 420px; }
+  .story-alt .story-visual { order: 0; }
+  .story-alt .story-text { order: 1; }
+  .story-text { padding: 0; }
+  .stories-intro { margin-bottom: 2.5rem; }
+  .scroll-cue { display: none; }
+}

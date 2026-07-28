@@ -19,19 +19,13 @@
 </head>
 <body>
 
-  <!-- ====== HUD superior ====== -->
+  <!-- ====== Header ====== -->
   <header class="hud-header" id="top">
-    <div class="hud-status">
-      <span class="blink-dot" aria-hidden="true"></span>
-      <span class="mono">BIENESTAR · CIENCIA · MÉXICO</span>
-    </div>
-    <a class="logo" href="#top" aria-label="PEPTIVA MX inicio">
-      PEPTIVA
-    </a>
+    <a class="logo" href="#top" aria-label="PEPTIVA inicio">PEPTIVA</a>
     <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#historias">Historias</a>
       <a href="#catalogo">Catálogo</a>
-      <a href="#protocolo">Protocolo</a>
-      <a href="#confianza">Confianza</a>
+      <a href="#protocolo">Calidad</a>
       <a href="#pago">Pago</a>
       <a href="#contacto">Contacto</a>
       <button class="cart-open mono" type="button" aria-label="Ver pedido">
@@ -40,27 +34,24 @@
     </nav>
   </header>
 
-  <!-- ====== Hero ====== -->
+  <!-- ====== Hero inmersivo ====== -->
   <section class="hero">
     <div class="hero-bg" role="img" aria-label="Silueta femenina elegante con elementos naturales en tonos tierra"></div>
     <div class="hero-content">
-      <p class="mono hero-kicker">CIENCIA PARA EL BIENESTAR FEMENINO</p>
-      <h1>PÉPTIDOS DE INVESTIGACIÓN<br><span class="red-glow">PARA TU BIENESTAR</span></h1>
-      <p class="hero-sub">
-        Belleza, juventud y descanso con respaldo científico. Cada compuesto pasa por
-        verificación de identidad por espectrometría de masas y pureza ≥99% por HPLC,
-        con Certificado de Análisis trazable por lote.
+      <p class="mono hero-kicker" data-reveal>Ciencia para el bienestar femenino</p>
+      <h1 data-reveal>Belleza, juventud<br>y descanso <span class="red-glow">con respaldo<br>científico</span></h1>
+      <p class="hero-sub" data-reveal>
+        Péptidos de investigación de grado analítico. Pureza ≥99% verificada por HPLC,
+        identidad por espectrometría de masas y certificado de análisis en cada lote.
       </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#catalogo">▸ Ver catálogo</a>
-        <a class="btn btn-ghost" href="#protocolo">Nuestra calidad</a>
+      <div class="hero-cta" data-reveal>
+        <a class="btn btn-primary" href="#historias">Descubre más</a>
+        <a class="btn btn-ghost" href="#catalogo">Ver catálogo</a>
       </div>
-      <ul class="hero-stats mono">
-        <li><strong>≥99%</strong> pureza HPLC</li>
-        <li><strong>MS</strong> identidad confirmada</li>
-        <li><strong>COA</strong> por cada lote</li>
-      </ul>
     </div>
+    <a class="scroll-cue" href="#historias" aria-label="Bajar a historias">
+      <span></span>
+    </a>
   </section>
 
   <!-- ====== Aviso legal ====== -->
@@ -69,47 +60,109 @@
     No destinado a consumo humano, diagnóstico ni tratamiento.
   </aside>
 
-  <!-- ====== Catálogo ====== -->
   <main>
+    <!-- ====== Historias (scroll narrativo) ====== -->
+    <section id="historias" class="stories">
+      <div class="stories-intro">
+        <p class="mono section-kicker" data-reveal>Tres pilares</p>
+        <h2 data-reveal>Tu bienestar,<br>en tres historias</h2>
+      </div>
+
+      <!-- Historia 1: Belleza -->
+      <article class="story">
+        <div class="story-visual">
+          <img src="img/vials/glow.png" alt="Vial GLOW 70 mg de PEPTIVA" loading="lazy">
+        </div>
+        <div class="story-text">
+          <p class="mono story-num" data-reveal>01</p>
+          <h3 data-reveal>Belleza</h3>
+          <p class="story-lead" data-reveal>Tu piel es tu primera carta de presentación.</p>
+          <p data-reveal>
+            Los péptidos de cobre como GHK-Cu se estudian por su papel en la producción de
+            colágeno, la elasticidad de la piel y la salud del folículo piloso. Blends como
+            GLOW y KLOW combinan varios de ellos en un solo vial.
+          </p>
+          <a class="story-link" href="#catalogo" data-reveal>Explorar belleza →</a>
+        </div>
+      </article>
+
+      <!-- Historia 2: Juventud -->
+      <article class="story story-alt">
+        <div class="story-visual">
+          <img src="img/vials/epithalon.png" alt="Vial Epithalon 10 mg de PEPTIVA" loading="lazy">
+        </div>
+        <div class="story-text">
+          <p class="mono story-num" data-reveal>02</p>
+          <h3 data-reveal>Juventud</h3>
+          <p class="story-lead" data-reveal>Envejecer es natural; hacerlo bien es ciencia.</p>
+          <p data-reveal>
+            Epithalon y NAD+ están en el centro de la investigación sobre longevidad:
+            telómeros, reparación celular y metabolismo energético. Moléculas pequeñas
+            con preguntas muy grandes detrás.
+          </p>
+          <a class="story-link" href="#catalogo" data-reveal>Explorar juventud →</a>
+        </div>
+      </article>
+
+      <!-- Historia 3: Descanso -->
+      <article class="story">
+        <div class="story-visual">
+          <img src="img/vials/selank.png" alt="Vial Selank 5 mg de PEPTIVA" loading="lazy">
+        </div>
+        <div class="story-text">
+          <p class="mono story-num" data-reveal>03</p>
+          <h3 data-reveal>Descanso</h3>
+          <p class="story-lead" data-reveal>La calma también se estudia.</p>
+          <p data-reveal>
+            Selank y la oxitocina son neuropéptidos en investigación sobre estrés, ánimo
+            y vínculo social. Y secretagogos como ipamorelin se estudian por su relación
+            con el sueño profundo y la recuperación nocturna.
+          </p>
+          <a class="story-link" href="#catalogo" data-reveal>Explorar descanso →</a>
+        </div>
+      </article>
+    </section>
+
     <!-- ====== Qué es un péptido ====== -->
     <section id="que-es" class="peptido-info">
       <div class="section-head">
-        <p class="mono section-kicker">Aprende</p>
-        <h2>¿QUÉ ES UN PÉPTIDO?</h2>
+        <p class="mono section-kicker" data-reveal>Aprende</p>
+        <h2 data-reveal>¿Qué es un péptido?</h2>
       </div>
       <div class="peptide-grid">
-        <article class="peptide-point">
+        <article class="peptide-point" data-reveal>
           <h3>Son bloques naturales de tu cuerpo</h3>
           <p>Un péptido es una cadena corta de aminoácidos — los mismos componentes con los que el cuerpo construye sus proteínas.</p>
         </article>
-        <article class="peptide-point">
+        <article class="peptide-point" data-reveal>
           <h3>Se forman como eslabones</h3>
           <p>Cada aminoácido se une al siguiente mediante un enlace peptídico; unas cuantas decenas forman un péptido, y cientos forman una proteína.</p>
         </article>
-        <article class="peptide-point">
+        <article class="peptide-point" data-reveal>
           <h3>Tu cuerpo ya los usa todos los días</h3>
           <p>Hormonas como la insulina, enzimas y muchas señales celulares son péptidos o están hechas de ellos. No son sustancias extrañas: son mensajeros que tu biología ya reconoce.</p>
         </article>
-        <article class="peptide-point">
+        <article class="peptide-point" data-reveal>
           <h3>Ya son parte de la medicina moderna</h3>
           <p>La insulina y los agonistas GLP-1 — algunos de los fármacos más recetados del mundo, desarrollados por grandes farmacéuticas — son péptidos. Es una de las clases de moléculas más estudiadas y consolidadas de la industria.</p>
         </article>
-        <article class="peptide-point">
+        <article class="peptide-point" data-reveal>
           <h3>Por eso se investigan</h3>
           <p>En ciencia y medicina, los péptidos permiten estudiar procesos como regeneración, metabolismo y envejecimiento con precisión molecular.</p>
         </article>
-        <article class="peptide-point">
+        <article class="peptide-point" data-reveal>
           <h3>Calidad verificable</h3>
-          <p>Cada compuesto de PEPTIVA MX tiene pureza ≥99% confirmada por HPLC, identidad por espectrometría de masas y certificado de análisis por lote. Para uso en investigación solamente.</p>
+          <p>Cada compuesto de PEPTIVA tiene pureza ≥99% confirmada por HPLC, identidad por espectrometría de masas y certificado de análisis por lote. Para uso en investigación solamente.</p>
         </article>
       </div>
     </section>
 
+    <!-- ====== Catálogo ====== -->
     <section id="catalogo" class="catalog">
       <div class="section-head">
-        <p class="mono section-kicker">Catálogo completo: <span id="product-count">21</span></p>
-        <h2>CATÁLOGO</h2>
-        <p class="mono catalog-note">*La etiqueta puede variar levemente</p>
+        <p class="mono section-kicker" data-reveal>Catálogo completo: <span id="product-count">28</span></p>
+        <h2 data-reveal>Catálogo</h2>
+        <p class="mono catalog-note" data-reveal>*La etiqueta puede variar levemente</p>
       </div>
       <div class="filters mono" id="filters" role="tablist" aria-label="Filtrar por categoría"></div>
       <div class="product-grid" id="product-grid"></div>
@@ -118,27 +171,27 @@
     <!-- ====== Protocolo de calidad ====== -->
     <section id="protocolo" class="protocol">
       <div class="section-head">
-        <p class="mono section-kicker">Nuestro proceso</p>
-        <h2>PROTOCOLO DE CALIDAD</h2>
+        <p class="mono section-kicker" data-reveal>Nuestro proceso</p>
+        <h2 data-reveal>Protocolo de calidad</h2>
       </div>
       <div class="protocol-grid">
-        <article class="protocol-card">
-          <span class="mono step">FASE_01</span>
+        <article class="protocol-card" data-reveal>
+          <span class="mono step">PASO_01</span>
           <h3>Síntesis y liofilización</h3>
           <p>Cada péptido se sintetiza bajo control de proceso y se liofiliza para preservar estabilidad durante el transporte y almacenamiento.</p>
         </article>
-        <article class="protocol-card">
-          <span class="mono step">FASE_02</span>
+        <article class="protocol-card" data-reveal>
+          <span class="mono step">PASO_02</span>
           <h3>Análisis HPLC</h3>
           <p>Cromatografía líquida de alta resolución en cada lote. Solo se libera material con pureza igual o superior al 99%.</p>
         </article>
-        <article class="protocol-card">
-          <span class="mono step">FASE_03</span>
+        <article class="protocol-card" data-reveal>
+          <span class="mono step">PASO_03</span>
           <h3>Espectrometría de masas</h3>
           <p>La identidad molecular se confirma por MS. Si la masa no coincide con la secuencia objetivo, el lote se destruye.</p>
         </article>
-        <article class="protocol-card">
-          <span class="mono step">FASE_04</span>
+        <article class="protocol-card" data-reveal>
+          <span class="mono step">PASO_04</span>
           <h3>COA y trazabilidad</h3>
           <p>Todo vial incluye número de lote vinculado a su Certificado de Análisis. Puedes solicitar el COA de tu lote antes de comprar.</p>
         </article>
@@ -148,32 +201,32 @@
     <!-- ====== Confianza ====== -->
     <section id="confianza" class="trust">
       <div class="section-head">
-        <p class="mono section-kicker">Tu tranquilidad</p>
-        <h2>POR QUÉ PEPTIVA</h2>
+        <p class="mono section-kicker" data-reveal>Tu tranquilidad</p>
+        <h2 data-reveal>Por qué Peptiva</h2>
       </div>
       <div class="trust-grid">
-        <div class="trust-item mono">
+        <div class="trust-item mono" data-reveal>
           <span class="trust-icon">▣</span>
           <h3>COA verificable</h3>
           <p>Certificado de análisis de ejemplo disponible y verificación de lote bajo solicitud.</p>
         </div>
-        <div class="trust-item mono">
+        <div class="trust-item mono" data-reveal>
           <span class="trust-icon">▣</span>
           <h3>Envío nacional</h3>
           <p>Cobertura a las 32 entidades de México con empaque discreto y cadena de frío cuando aplica.</p>
         </div>
-        <div class="trust-item mono">
+        <div class="trust-item mono" data-reveal>
           <span class="trust-icon">▣</span>
           <h3>Devolución 30 días</h3>
           <p>Si el producto llega comprometido, lo reponemos o te devolvemos tu dinero.</p>
         </div>
-        <div class="trust-item mono">
+        <div class="trust-item mono" data-reveal>
           <span class="trust-icon">▣</span>
           <h3>Soporte técnico</h3>
           <p>Glosario técnico y acompañamiento para interpretar COA, HPLC y datos de espectrometría.</p>
         </div>
       </div>
-      <figure class="coa-figure">
+      <figure class="coa-figure" data-reveal>
         <img src="img/coa.jpg" alt="Visualización holográfica de un certificado de análisis de laboratorio" loading="lazy">
         <figcaption class="mono">Análisis por lote: COA + HPLC + MS</figcaption>
       </figure>
@@ -182,16 +235,16 @@
     <!-- ====== Métodos de pago ====== -->
     <section id="pago" class="payment">
       <div class="section-head">
-        <p class="mono section-kicker">Formas de pago</p>
-        <h2>MÉTODOS DE PAGO</h2>
+        <p class="mono section-kicker" data-reveal>Formas de pago</p>
+        <h2 data-reveal>Métodos de pago</h2>
       </div>
       <div class="payment-grid">
-        <article class="payment-card">
+        <article class="payment-card" data-reveal>
           <h3>Transferencia SPEI</h3>
           <p>Método principal. Al confirmar tu pedido por WhatsApp te compartimos la CLABE y referencia. Tu pedido se prepara en cuanto se acredita.</p>
           <p class="mono payment-status">CLABE: <em>pendiente</em></p>
         </article>
-        <article class="payment-card">
+        <article class="payment-card" data-reveal>
           <h3>Tarjeta — Link de pago*</h3>
           <p>Paga con tarjeta de crédito o débito mediante un link de pago seguro de MercadoPago. Lo generamos para tu pedido al confirmarlo por WhatsApp.</p>
           <div class="card-brands" aria-label="Tarjetas aceptadas por MercadoPago">
@@ -201,7 +254,7 @@
           </div>
           <p class="mono payment-note">*El link de pago se genera por pedido, con tarjeta a meses según promoción de MercadoPago.</p>
         </article>
-        <article class="payment-card">
+        <article class="payment-card" data-reveal>
           <h3>Efectivo — OXXO</h3>
           <p>Sin tarjeta ni cuenta: con el mismo link de pago de MercadoPago elige la opción <strong>efectivo</strong> y paga en cualquier OXXO con la referencia generada. Se acredita en 1-2 días hábiles.</p>
           <div class="card-brands" aria-label="Pago en efectivo en OXXO">
@@ -209,7 +262,7 @@
           </div>
           <p class="mono payment-note">El pedido se prepara al confirmarse el pago en tienda.</p>
         </article>
-        <article class="payment-card">
+        <article class="payment-card" data-reveal>
           <h3>WhatsApp</h3>
           <p>Todo pedido se confirma por WhatsApp: revisas productos, total y método de pago directamente con nosotros antes de pagar.</p>
           <p class="mono payment-status">NÚMERO: <em>+52 951 638 3849</em></p>
@@ -220,14 +273,14 @@
     <!-- ====== Contacto ====== -->
     <section id="contacto" class="contact">
       <div class="section-head">
-        <p class="mono section-kicker">Hablemos</p>
-        <h2>CONTACTO</h2>
+        <p class="mono section-kicker" data-reveal>Hablemos</p>
+        <h2 data-reveal>Contacto</h2>
       </div>
-      <div class="contact-card">
+      <div class="contact-card" data-reveal>
         <p class="mono contact-status"><span class="blink-dot"></span> CANALES ACTIVOS — WHATSAPP · CORREO</p>
         <p>
           Pedidos, cotizaciones y solicitud de COA se atienden por WhatsApp o correo.
-          Sitio oficial: <strong>peptiva.com</strong>
+          Sitio oficial: <strong>peptiva.com.mx</strong>
         </p>
         <ul class="mono contact-pending">
           <li>DOMINIO: <em>peptiva.com.mx</em></li>
@@ -235,7 +288,7 @@
           <li>WHATSAPP: <em>+52 951 638 3849</em></li>
         </ul>
         <div class="buy-actions">
-          <a class="btn btn-primary" href="https://wa.me/529516383849?text=Hola%20PEPTIVA%20MX%2C%20quiero%20informaci%C3%B3n%20sobre%20su%20cat%C3%A1logo" target="_blank" rel="noopener">▸ Escribir por WhatsApp</a>
+          <a class="btn btn-primary" href="https://wa.me/529516383849?text=Hola%20PEPTIVA%2C%20quiero%20informaci%C3%B3n%20sobre%20su%20cat%C3%A1logo" target="_blank" rel="noopener">▸ Escribir por WhatsApp</a>
           <a class="btn btn-ghost" href="mailto:contacto@peptiva.com.mx">Enviar correo</a>
         </div>
       </div>
@@ -244,13 +297,13 @@
 
   <!-- ====== Footer ====== -->
   <footer class="footer mono">
-    <p class="footer-brand">PEPTIVA<span>MX</span> — unidad de distribución de péptidos de investigación</p>
+    <p class="footer-brand">PEPTIVA — Ciencia para el bienestar femenino</p>
     <p class="footer-legal">
       Todos los compuestos se ofrecen exclusivamente para investigación científica in vitro.
       No están aprobados como medicamento, suplemento ni alimento, y no están destinados a
       consumo humano, diagnóstico ni tratamiento.
     </p>
-    <p class="footer-copy">© 2026 PEPTIVA MX · Precios en MXN · Catálogo sujeto a disponibilidad de lote</p>
+    <p class="footer-copy">© 2026 PEPTIVA · Precios en MXN · Catálogo sujeto a disponibilidad de lote</p>
   </footer>
 
   <!-- ====== Modal ficha de producto ====== -->
@@ -303,5 +356,6 @@
   <script src="js/stripe-config.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/reveal.js"></script>
 </body>
 </html>

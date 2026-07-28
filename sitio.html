@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEPTIVA | Ciencia para el bienestar femenino — Péptidos de investigación</title>
+  <meta name="description" content="PEPTIVA — péptidos de investigación para el bienestar femenino: belleza, juventud y descanso. Pureza ≥99% HPLC, COA por lote. Solo uso en investigación.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Guardia de edad: sin verificación +18, regresar a la puerta
+    if (sessionStorage.getItem("peptiva_age_ok") !== "1") {
+      window.location.replace("index.html");
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ====== HUD superior ====== -->
+  <header class="hud-header" id="top">
+    <div class="hud-status">
+      <span class="blink-dot" aria-hidden="true"></span>
+      <span class="mono">BIENESTAR · CIENCIA · MÉXICO</span>
+    </div>
+    <a class="logo" href="#top" aria-label="PEPTIVA MX inicio">
+      PEPTIVA
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#protocolo">Protocolo</a>
+      <a href="#confianza">Confianza</a>
+      <a href="#pago">Pago</a>
+      <a href="#contacto">Contacto</a>
+      <button class="cart-open mono" type="button" aria-label="Ver pedido">
+        PEDIDO <span class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ====== Hero ====== -->
+  <section class="hero">
+    <div class="hero-bg" role="img" aria-label="Silueta femenina elegante con elementos naturales en tonos tierra"></div>
+    <div class="hero-content">
+      <p class="mono hero-kicker">CIENCIA PARA EL BIENESTAR FEMENINO</p>
+      <h1>PÉPTIDOS DE INVESTIGACIÓN<br><span class="red-glow">PARA TU BIENESTAR</span></h1>
+      <p class="hero-sub">
+        Belleza, juventud y descanso con respaldo científico. Cada compuesto pasa por
+        verificación de identidad por espectrometría de masas y pureza ≥99% por HPLC,
+        con Certificado de Análisis trazable por lote.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#catalogo">▸ Ver catálogo</a>
+        <a class="btn btn-ghost" href="#protocolo">Nuestra calidad</a>
+      </div>
+      <ul class="hero-stats mono">
+        <li><strong>≥99%</strong> pureza HPLC</li>
+        <li><strong>MS</strong> identidad confirmada</li>
+        <li><strong>COA</strong> por cada lote</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====== Aviso legal ====== -->
+  <aside class="legal-banner mono" role="note">
+    ⚠ PARA USO EN INVESTIGACIÓN SOLAMENTE — No es medicamento, suplemento ni alimento.
+    No destinado a consumo humano, diagnóstico ni tratamiento.
+  </aside>
+
+  <!-- ====== Catálogo ====== -->
+  <main>
+    <!-- ====== Qué es un péptido ====== -->
+    <section id="que-es" class="peptido-info">
+      <div class="section-head">
+        <p class="mono section-kicker">Aprende</p>
+        <h2>¿QUÉ ES UN PÉPTIDO?</h2>
+      </div>
+      <div class="peptide-grid">
+        <article class="peptide-point">
+          <h3>Son bloques naturales de tu cuerpo</h3>
+          <p>Un péptido es una cadena corta de aminoácidos — los mismos componentes con los que el cuerpo construye sus proteínas.</p>
+        </article>
+        <article class="peptide-point">
+          <h3>Se forman como eslabones</h3>
+          <p>Cada aminoácido se une al siguiente mediante un enlace peptídico; unas cuantas decenas forman un péptido, y cientos forman una proteína.</p>
+        </article>
+        <article class="peptide-point">
+          <h3>Tu cuerpo ya los usa todos los días</h3>
+          <p>Hormonas como la insulina, enzimas y muchas señales celulares son péptidos o están hechas de ellos. No son sustancias extrañas: son mensajeros que tu biología ya reconoce.</p>
+        </article>
+        <article class="peptide-point">
+          <h3>Ya son parte de la medicina moderna</h3>
+          <p>La insulina y los agonistas GLP-1 — algunos de los fármacos más recetados del mundo, desarrollados por grandes farmacéuticas — son péptidos. Es una de las clases de moléculas más estudiadas y consolidadas de la industria.</p>
+        </article>
+        <article class="peptide-point">
+          <h3>Por eso se investigan</h3>
+          <p>En ciencia y medicina, los péptidos permiten estudiar procesos como regeneración, metabolismo y envejecimiento con precisión molecular.</p>
+        </article>
+        <article class="peptide-point">
+          <h3>Calidad verificable</h3>
+          <p>Cada compuesto de PEPTIVA MX tiene pureza ≥99% confirmada por HPLC, identidad por espectrometría de masas y certificado de análisis por lote. Para uso en investigación solamente.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="catalogo" class="catalog">
+      <div class="section-head">
+        <p class="mono section-kicker">Catálogo completo: <span id="product-count">21</span></p>
+        <h2>CATÁLOGO</h2>
+        <p class="mono catalog-note">*La etiqueta puede variar levemente</p>
+      </div>
+      <div class="filters mono" id="filters" role="tablist" aria-label="Filtrar por categoría"></div>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <!-- ====== Protocolo de calidad ====== -->
+    <section id="protocolo" class="protocol">
+      <div class="section-head">
+        <p class="mono section-kicker">Nuestro proceso</p>
+        <h2>PROTOCOLO DE CALIDAD</h2>
+      </div>
+      <div class="protocol-grid">
+        <article class="protocol-card">
+          <span class="mono step">FASE_01</span>
+          <h3>Síntesis y liofilización</h3>
+          <p>Cada péptido se sintetiza bajo control de proceso y se liofiliza para preservar estabilidad durante el transporte y almacenamiento.</p>
+        </article>
+        <article class="protocol-card">
+          <span class="mono step">FASE_02</span>
+          <h3>Análisis HPLC</h3>
+          <p>Cromatografía líquida de alta resolución en cada lote. Solo se libera material con pureza igual o superior al 99%.</p>
+        </article>
+        <article class="protocol-card">
+          <span class="mono step">FASE_03</span>
+          <h3>Espectrometría de masas</h3>
+          <p>La identidad molecular se confirma por MS. Si la masa no coincide con la secuencia objetivo, el lote se destruye.</p>
+        </article>
+        <article class="protocol-card">
+          <span class="mono step">FASE_04</span>
+          <h3>COA y trazabilidad</h3>
+          <p>Todo vial incluye número de lote vinculado a su Certificado de Análisis. Puedes solicitar el COA de tu lote antes de comprar.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== Confianza ====== -->
+    <section id="confianza" class="trust">
+      <div class="section-head">
+        <p class="mono section-kicker">Tu tranquilidad</p>
+        <h2>POR QUÉ PEPTIVA</h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item mono">
+          <span class="trust-icon">▣</span>
+          <h3>COA verificable</h3>
+          <p>Certificado de análisis de ejemplo disponible y verificación de lote bajo solicitud.</p>
+        </div>
+        <div class="trust-item mono">
+          <span class="trust-icon">▣</span>
+          <h3>Envío nacional</h3>
+          <p>Cobertura a las 32 entidades de México con empaque discreto y cadena de frío cuando aplica.</p>
+        </div>
+        <div class="trust-item mono">
+          <span class="trust-icon">▣</span>
+          <h3>Devolución 30 días</h3>
+          <p>Si el producto llega comprometido, lo reponemos o te devolvemos tu dinero.</p>
+        </div>
+        <div class="trust-item mono">
+          <span class="trust-icon">▣</span>
+          <h3>Soporte técnico</h3>
+          <p>Glosario técnico y acompañamiento para interpretar COA, HPLC y datos de espectrometría.</p>
+        </div>
+      </div>
+      <figure class="coa-figure">
+        <img src="img/coa.jpg" alt="Visualización holográfica de un certificado de análisis de laboratorio" loading="lazy">
+        <figcaption class="mono">Análisis por lote: COA + HPLC + MS</figcaption>
+      </figure>
+    </section>
+
+    <!-- ====== Métodos de pago ====== -->
+    <section id="pago" class="payment">
+      <div class="section-head">
+        <p class="mono section-kicker">Formas de pago</p>
+        <h2>MÉTODOS DE PAGO</h2>
+      </div>
+      <div class="payment-grid">
+        <article class="payment-card">
+          <h3>Transferencia SPEI</h3>
+          <p>Método principal. Al confirmar tu pedido por WhatsApp te compartimos la CLABE y referencia. Tu pedido se prepara en cuanto se acredita.</p>
+          <p class="mono payment-status">CLABE: <em>pendiente</em></p>
+        </article>
+        <article class="payment-card">
+          <h3>Tarjeta — Link de pago*</h3>
+          <p>Paga con tarjeta de crédito o débito mediante un link de pago seguro de MercadoPago. Lo generamos para tu pedido al confirmarlo por WhatsApp.</p>
+          <div class="card-brands" aria-label="Tarjetas aceptadas por MercadoPago">
+            <span class="brand-badge brand-visa">VISA</span>
+            <span class="brand-badge brand-mc"><span class="mc-c1"></span><span class="mc-c2"></span></span>
+            <span class="brand-badge brand-amex">AMEX</span>
+          </div>
+          <p class="mono payment-note">*El link de pago se genera por pedido, con tarjeta a meses según promoción de MercadoPago.</p>
+        </article>
+        <article class="payment-card">
+          <h3>Efectivo — OXXO</h3>
+          <p>Sin tarjeta ni cuenta: con el mismo link de pago de MercadoPago elige la opción <strong>efectivo</strong> y paga en cualquier OXXO con la referencia generada. Se acredita en 1-2 días hábiles.</p>
+          <div class="card-brands" aria-label="Pago en efectivo en OXXO">
+            <span class="brand-badge brand-oxxo">OXXO</span>
+          </div>
+          <p class="mono payment-note">El pedido se prepara al confirmarse el pago en tienda.</p>
+        </article>
+        <article class="payment-card">
+          <h3>WhatsApp</h3>
+          <p>Todo pedido se confirma por WhatsApp: revisas productos, total y método de pago directamente con nosotros antes de pagar.</p>
+          <p class="mono payment-status">NÚMERO: <em>+52 951 638 3849</em></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== Contacto ====== -->
+    <section id="contacto" class="contact">
+      <div class="section-head">
+        <p class="mono section-kicker">Hablemos</p>
+        <h2>CONTACTO</h2>
+      </div>
+      <div class="contact-card">
+        <p class="mono contact-status"><span class="blink-dot"></span> CANALES ACTIVOS — WHATSAPP · CORREO</p>
+        <p>
+          Pedidos, cotizaciones y solicitud de COA se atienden por WhatsApp o correo.
+          Sitio oficial: <strong>peptiva.com</strong>
+        </p>
+        <ul class="mono contact-pending">
+          <li>DOMINIO: <em>peptiva.com</em></li>
+          <li>CORREO: <em>ventas@peptiva.com</em></li>
+          <li>WHATSAPP: <em>+52 951 638 3849</em></li>
+        </ul>
+        <div class="buy-actions">
+          <a class="btn btn-primary" href="https://wa.me/529516383849?text=Hola%20PEPTIVA%20MX%2C%20quiero%20informaci%C3%B3n%20sobre%20su%20cat%C3%A1logo" target="_blank" rel="noopener">▸ Escribir por WhatsApp</a>
+          <a class="btn btn-ghost" href="mailto:ventas@peptiva.com">Enviar correo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer class="footer mono">
+    <p class="footer-brand">PEPTIVA<span>MX</span> — unidad de distribución de péptidos de investigación</p>
+    <p class="footer-legal">
+      Todos los compuestos se ofrecen exclusivamente para investigación científica in vitro.
+      No están aprobados como medicamento, suplemento ni alimento, y no están destinados a
+      consumo humano, diagnóstico ni tratamiento.
+    </p>
+    <p class="footer-copy">© 2026 PEPTIVA MX · Precios en MXN · Catálogo sujeto a disponibilidad de lote</p>
+  </footer>
+
+  <!-- ====== Modal ficha de producto ====== -->
+  <div class="modal" id="product-modal" role="dialog" aria-modal="true" aria-label="Ficha de producto">
+    <div class="modal-box">
+      <button class="modal-close mono" type="button" aria-label="Cerrar ficha">✕ CERRAR</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ====== Carrito / pedido ====== -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Tu pedido">
+    <div class="cart-head">
+      <h3 class="mono">Tu pedido</h3>
+      <button class="cart-close mono" id="cart-close" type="button" aria-label="Cerrar pedido">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-foot">
+      <div class="cart-ship-row">
+        <span class="brand-badge brand-dhl">DHL</span>
+        <select id="cart-state" class="cart-state mono" aria-label="Estado de envío"></select>
+      </div>
+      <div class="cart-total-row mono cart-sub-row">
+        <span>SUBTOTAL</span>
+        <span id="cart-total">$0</span>
+      </div>
+      <div class="cart-total-row mono cart-sub-row">
+        <span>ENVÍO (DHL)</span>
+        <span id="cart-shipping">—</span>
+      </div>
+      <div class="cart-total-row mono">
+        <span>TOTAL</span>
+        <span id="cart-grand">$0</span>
+      </div>
+      <button class="btn btn-primary cart-checkout" id="cart-whatsapp" type="button">▸ Confirmar pedido por WhatsApp</button>
+      <div class="card-brands cart-brands" aria-label="Métodos de pago aceptados">
+        <span class="brand-badge brand-visa">VISA</span>
+        <span class="brand-badge brand-mc"><span class="mc-c1"></span><span class="mc-c2"></span></span>
+        <span class="brand-badge brand-amex">AMEX</span>
+        <span class="brand-badge brand-oxxo">OXXO</span>
+      </div>
+      <p class="mono cart-note">El pago se acuerda al confirmar: SPEI, tarjeta o efectivo en OXXO.</p>
+    </div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/stock.js"></script>
+  <script src="js/shipping.js"></script>
+  <script src="js/stripe-config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -204,6 +204,32 @@
     if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
   });
 
+
+  // Pilares temáticos (belleza / juventud / descanso) vía hash #catalogo-<pilar>
+  const PILARES = {
+    belleza:  ["glow", "klow", "ghk-cu", "ghk-cu-100", "melanotan-1", "melanotan-2"],
+    juventud: ["epithalon", "nad", "mots-c", "5amino1mq"],
+    descanso: ["selank", "oxitocina-5", "oxitocina-10", "ipamorelin", "ipamorelin-10"]
+  };
+
+  function aplicarPilar(nombre) {
+    const ids = PILARES[nombre];
+    if (!ids) return;
+    const list = PRODUCTS.filter(p => ids.includes(p.id));
+    grid.innerHTML = list.map(cardHTML).join("");
+    countEl.textContent = list.length;
+    catActual = "pilar:" + nombre;
+    document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+    filtersEl.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  }
+
+  function checkHash() {
+    const m = location.hash.match(/^#catalogo-(\w+)/);
+    if (m && PILARES[m[1]]) aplicarPilar(m[1]);
+  }
+  window.addEventListener("hashchange", checkHash);
+  checkHash();
+
   renderFilters();
   render("todos");
 })();

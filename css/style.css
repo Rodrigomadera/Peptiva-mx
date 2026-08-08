@@ -1169,3 +1169,30 @@ section { padding: 5rem 7vw; }
   .stories-row { grid-template-columns: 1fr; }
   .story-thumb { height: 160px; }
 }
+
+/* ---------- Explora más (fin de vista por pilar) ---------- */
+.explora-mas {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.explora-mas button {
+  background: none;
+  border: 1.5px solid var(--terra);
+  border-radius: 999px;
+  color: var(--terra);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 1.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.explora-mas button:hover {
+  background: var(--terra);
+  color: #fff;
+}

@@ -216,11 +216,18 @@
     const ids = PILARES[nombre];
     if (!ids) return;
     const list = PRODUCTS.filter(p => ids.includes(p.id));
-    grid.innerHTML = list.map(cardHTML).join("");
+    grid.innerHTML = list.map(cardHTML).join("")
+      + `<div class="explora-mas"><button type="button" id="explora-mas-btn">Explora más — ver catálogo completo ↓</button></div>`;
     countEl.textContent = list.length;
     catActual = "pilar:" + nombre;
     document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
     filtersEl.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    document.getElementById("explora-mas-btn").addEventListener("click", () => {
+      catActual = "todos";
+      render("todos");
+      filtersEl.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.cat === "todos"));
+      document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+    });
   }
 
   function checkHash() {

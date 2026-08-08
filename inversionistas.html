@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Inversionistas | PEPTIVA</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .inv-wrap { max-width: 980px; margin: 0 auto; }
+    .inv-gate { max-width: 420px; margin: 6rem auto; background: var(--bg-card); border: 1px solid var(--line); border-radius: 22px; padding: 2.4rem; text-align: center; }
+    .inv-gate h1 { font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; margin-bottom: 0.4rem; }
+    .inv-gate p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 1.4rem; }
+    .inv-gate input { width: 100%; background: var(--bg); border: 1.5px solid var(--line); border-radius: 999px; padding: 0.7rem 1.1rem; font-family: var(--font-body); font-size: 1rem; color: var(--ink); outline: none; margin-bottom: 1rem; text-align: center; }
+    .inv-gate input:focus { border-color: var(--terra); }
+    .inv-gate button { width: 100%; border: none; cursor: pointer; }
+    .inv-error { display: none; color: var(--terra); font-size: 0.85rem; margin-top: 0.8rem; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin: 1.6rem 0 2.4rem; }
+    .kpi { background: var(--bg-card); border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.2rem; }
+    .kpi span { display: block; font-size: 0.68rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 0.3rem; }
+    .kpi strong { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; color: var(--terra); }
+    .inv-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: 20px; padding: 1.6rem; margin-bottom: 1.6rem; }
+    .inv-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th { text-align: left; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); padding: 0.5rem 0.6rem; border-bottom: 2px solid var(--line); }
+    td { padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--line); color: var(--ink); }
+    .inv-note { font-size: 0.78rem; color: var(--ink-soft); font-style: italic; }
+  </style>
+</head>
+<body>
+
+  <header class="hud-header">
+    <a class="logo" href="sitio.html">PEPTIVA</a>
+    <nav class="main-nav">
+      <a href="sitio.html#catalogo">Catálogo</a>
+      <a href="sitio.html#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="inv-wrap">
+    <!-- Login -->
+    <div class="inv-gate" id="inv-gate">
+      <h1>Portal de Inversionistas</h1>
+      <p>Acceso restringido. Introduce la contraseña compartida.</p>
+      <input type="password" id="inv-pass" placeholder="Contraseña" autocomplete="off">
+      <button class="btn btn-primary" id="inv-entrar" type="button">Entrar</button>
+      <p class="inv-error" id="inv-error">Contraseña incorrecta.</p>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="inv-dash" style="display:none">
+      <section>
+        <div class="section-head">
+          <p class="mono section-kicker">Transparencia en vivo</p>
+          <h2>Panel de inversionistas</h2>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi"><span>Ingresos</span><strong id="k-ingresos">—</strong></div>
+          <div class="kpi"><span>Viales vendidos</span><strong id="k-unidades">—</strong></div>
+          <div class="kpi"><span>Utilidad neta est.</span><strong id="k-utilidad">—</strong></div>
+          <div class="kpi"><span>Fondo de reparto</span><strong id="k-fondo">—</strong></div>
+          <div class="kpi"><span>Repartido a ti</span><strong id="k-repartido">—</strong></div>
+        </div>
+        <div class="inv-card">
+          <h3>Ventas registradas</h3>
+          <table>
+            <thead><tr><th>Fecha</th><th>Marca</th><th>Producto</th><th>Cant.</th><th>Total</th><th>Método</th></tr></thead>
+            <tbody id="inv-ventas-body"></tbody>
+          </table>
+        </div>
+        <div class="inv-card">
+          <h3>Repartos de utilidades</h3>
+          <table>
+            <thead><tr><th>Fecha</th><th>Inversionista (40%)</th><th>Empresa (60%)</th><th>Notas</th></tr></thead>
+            <tbody id="inv-repartos-body"></tbody>
+          </table>
+        </div>
+        <p class="inv-note">Datos en vivo desde el libro contable compartido. La utilidad neta estimada considera el costo de proveedor por vial; el fondo de reparto corresponde al 50% distribuible menos lo ya repartido. Proyección, no garantía.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/investors.js"></script>
+</body>
+</html>

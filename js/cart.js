@@ -9,7 +9,9 @@ const CHECKOUT_CONFIG = {
 // ============================================================
 
 // PEPTINATOR MX — Carrito de compras (localStorage) + checkout por WhatsApp
+// i18n: strings visibles vía T() según window.LANG (js/i18n.js)
 (function () {
+  const T = window.T || (k => k);
   const KEY = "peptinator_cart";
   const fmt = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 });
 
@@ -47,22 +49,23 @@ const CHECKOUT_CONFIG = {
     renderBadge();
     if (!itemsEl) return;
     if (cart.length === 0) {
-      itemsEl.innerHTML = '<p class="mono cart-empty">// PEDIDO VACÍO — agrega productos desde el catálogo</p>';
+      itemsEl.innerHTML = `<p class="mono cart-empty">${T("cart.empty")}</p>`;
       totalEl.textContent = fmt.format(0);
       if (shipEl) shipEl.textContent = "—";
       if (grandEl) grandEl.textContent = fmt.format(0);
+      renderShipping();
       return;
     }
     itemsEl.innerHTML = cart.map(i => {
       const p = producto(i.id);
       if (!p) return "";
-      const precio = p.price === null ? "POR CONFIRMAR" : fmt.format(p.price * i.qty);
+      const precio = p.price === null ? T("shop.tbd") : fmt.format(p.price * i.qty);
       const max = typeof stockDe === "function" ? stockDe(p.id) : 99;
       return `
         <div class="cart-item" data-id="${p.id}">
           <div class="cart-item-info">
             <span class="cart-item-name">${p.name}</span>
-            <span class="mono cart-item-spec">${p.spec} · ${p.price === null ? "—" : fmt.format(p.price)} · máx ${max}</span>
+            <span class="mono cart-item-spec">${p.spec} · ${p.price === null ? "—" : fmt.format(p.price)} · ${T("cart.max")} ${max}</span>
           </div>
           <div class="qty-ctrl mono">
             <button type="button" data-cart="menos" aria-label="Quitar uno">−</button>
@@ -90,10 +93,10 @@ const CHECKOUT_CONFIG = {
   }
 
   function renderShipping() {
-    if (shipSelect && !shipSelect.dataset.ready) {
-      shipSelect.innerHTML = '<option value="">Estado de envío…</option>' +
+    if (shipSelect && shipSelect.dataset.lang !== (window.LANG || "es")) {
+      shipSelect.innerHTML = `<option value="">${T("cart.state.ph")}</option>` +
         ESTADOS_MX.map(e => `<option${e === estadoSel ? " selected" : ""}>${e}</option>`).join("");
-      shipSelect.dataset.ready = "1";
+      shipSelect.dataset.lang = window.LANG || "es";
     }
     const envio = precioEnvio();
     if (shipEl) shipEl.textContent = envio === null ? "—" : fmt.format(envio);
@@ -121,17 +124,17 @@ const CHECKOUT_CONFIG = {
     const lineas = cart.map(i => {
       const p = producto(i.id);
       if (!p) return "";
-      const precio = p.price === null ? "precio por confirmar" : fmt.format(p.price * i.qty);
+      const precio = p.price === null ? T("shop.tbd").toLowerCase() : fmt.format(p.price * i.qty);
       return `• ${p.name} ${p.spec} x${i.qty} — ${precio}`;
     }).filter(Boolean);
     const envio = precioEnvio();
     const lineaEnvio = envio !== null
-      ? `• Envío DHL a ${estadoSel} — ${fmt.format(envio)}`
-      : "• Envío DHL — por confirmar estado";
-    const msg = ["PEDIDO PEPTINATOR MX", "", ...lineas, lineaEnvio, "",
-                 `Subtotal: ${fmt.format(totalPrecio())} MXN`,
-                 `TOTAL CON ENVÍO: ${fmt.format(totalPrecio() + (envio || 0))} MXN`, "",
-                 "Mi nombre es:"].join("\n");
+      ? `• ${T("wa.ship")}${estadoSel} — ${fmt.format(envio)}`
+      : T("wa.ship.tbd");
+    const msg = [T("wa.header"), "", ...lineas, lineaEnvio, "",
+                 `${T("wa.subtotal")}${fmt.format(totalPrecio())} MXN`,
+                 `${T("wa.total")}${fmt.format(totalPrecio() + (envio || 0))} MXN`, "",
+                 T("wa.name")].join("\n");
     window.open(`https://wa.me/${CHECKOUT_CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
   }
 
@@ -177,6 +180,9 @@ const CHECKOUT_CONFIG = {
     save();
     render();
   });
+
+  // Traducciones aplicadas: re-render del carrito según LANG
+  document.addEventListener("i18n:applied", render);
 
   render();
 })();

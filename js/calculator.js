@@ -1,6 +1,7 @@
 // Calculadora de reconstitución de péptidos — PEPTINATOR MX / PEPTIVA
 // Matemática estándar de laboratorio: concentración, volumen a extraer, dosis por vial.
 (function () {
+  const T = window.T || (k => k);
   const $ = id => document.getElementById(id);
   const selProducto = $("calc-producto");
   const inpMg = $("calc-mg");
@@ -86,10 +87,10 @@
     let arr = [];
     try { arr = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) {}
     listaGuardados.innerHTML = arr.length === 0
-      ? '<p class="calc-saved-empty">Sin cálculos guardados.</p>'
+      ? `<p class="calc-saved-empty">${T("calc.saved.empty")}</p>`
       : arr.map((s, i) => `
         <div class="calc-saved-item">
-          <span><strong>${s.nombre}</strong> — ${s.mg} mg en ${s.agua} mL · dosis ${s.dosis} mcg → <strong>${s.unidades} UI</strong></span>
+          <span><strong>${s.nombre}</strong> — ${s.mg} mg ${T("calc.saved.in")} ${s.agua} mL · ${T("calc.saved.dose")} ${s.dosis} mcg → <strong>${s.unidades} UI</strong></span>
           <button type="button" data-del="${i}" aria-label="Eliminar">✕</button>
         </div>`).join("");
     listaGuardados.querySelectorAll("[data-del]").forEach(b =>
@@ -119,6 +120,8 @@
   });
   [inpMg, inpAgua, inpDosis, selUnidad, selJeringa].forEach(el =>
     el.addEventListener("input", calcular));
+
+  document.addEventListener("i18n:applied", cargarGuardados);
 
   cargarProductos();
   if (!inpAgua.value) inpAgua.value = 2;

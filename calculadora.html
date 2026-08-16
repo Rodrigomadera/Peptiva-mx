@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="es-MX" data-i18n-title="calc.title">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +44,7 @@
     .calc-aviso { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--ink-soft); margin-top: 1.2rem; }
     #calc-guardar { border: none; cursor: pointer; }
   </style>
+  <script src="js/i18n.js"></script>
   <script>
     if (sessionStorage.getItem("peptiva_age_ok") !== "1") {
       window.location.replace("index.html");
@@ -55,45 +56,45 @@
   <header class="hud-header" id="top">
     <a class="logo" href="sitio.html">PEPTIVA</a>
     <nav class="main-nav" aria-label="Navegación principal">
-      <a href="sitio.html#catalogo">Catálogo</a>
-      <a href="calculadora.html">Calculadora</a>
-      <a href="sitio.html#pago">Pago</a>
-      <a href="sitio.html#contacto">Contacto</a>
-      <button class="cart-open mono" type="button" onclick="location.href='sitio.html#top'" aria-label="Ir a la tienda">TIENDA</button>
+      <a href="sitio.html#catalogo" data-i18n="nav.catalog">Catálogo</a>
+      <a href="calculadora.html" data-i18n="nav.calc">Calculadora</a>
+      <a href="sitio.html#pago" data-i18n="nav.pay">Pago</a>
+      <a href="sitio.html#contacto" data-i18n="nav.contact">Contacto</a>
+      <button class="cart-open mono" type="button" onclick="location.href='sitio.html#top'" aria-label="Ir a la tienda" data-i18n="nav.shop">TIENDA</button>
     </nav>
   </header>
 
   <main>
     <section class="calc-wrap">
       <div class="section-head">
-        <p class="mono section-kicker" data-reveal>Herramienta de laboratorio</p>
-        <h2 data-reveal>Calculadora de reconstitución</h2>
+        <p class="mono section-kicker" data-reveal data-i18n="calc.kicker">Herramienta de laboratorio</p>
+        <h2 data-reveal data-i18n="calc.h2">Calculadora de reconstitución</h2>
       </div>
 
       <div class="calc-grid">
         <!-- Entradas -->
         <div class="calc-card">
           <div class="calc-field">
-            <label for="calc-producto">Producto del catálogo (precarga mg)</label>
-            <select id="calc-producto"><option value="">— Personalizado —</option></select>
+            <label for="calc-producto" data-i18n="calc.product">Producto del catálogo (precarga mg)</label>
+            <select id="calc-producto"><option value="" data-i18n="calc.custom">— Personalizado —</option></select>
           </div>
           <div class="calc-row">
             <div class="calc-field">
-              <label for="calc-mg">Péptido en el vial (mg)</label>
+              <label for="calc-mg" data-i18n="calc.mg">Péptido en el vial (mg)</label>
               <input id="calc-mg" type="number" min="0" step="any" placeholder="5">
             </div>
             <div class="calc-field">
-              <label for="calc-agua">Agua bacteriostática (mL)</label>
+              <label for="calc-agua" data-i18n="calc.water">Agua bacteriostática (mL)</label>
               <input id="calc-agua" type="number" min="0" step="any" value="2">
             </div>
           </div>
           <div class="calc-row">
             <div class="calc-field">
-              <label for="calc-dosis">Dosis deseada</label>
+              <label for="calc-dosis" data-i18n="calc.dose">Dosis deseada</label>
               <input id="calc-dosis" type="number" min="0" step="any" placeholder="250">
             </div>
             <div class="calc-field">
-              <label for="calc-unidad-dosis">Unidad de dosis</label>
+              <label for="calc-unidad-dosis" data-i18n="calc.unit">Unidad de dosis</label>
               <select id="calc-unidad-dosis">
                 <option value="mcg" selected>mcg</option>
                 <option value="mg">mg</option>
@@ -101,43 +102,43 @@
             </div>
           </div>
           <div class="calc-field">
-            <label for="calc-jeringa">Tamaño de jeringa de insulina</label>
+            <label for="calc-jeringa" data-i18n="calc.syringe">Tamaño de jeringa de insulina</label>
             <select id="calc-jeringa">
               <option value="1" selected>1 mL (100 UI)</option>
               <option value="0.5">0.5 mL (50 UI)</option>
               <option value="0.3">0.3 mL (30 UI)</option>
             </select>
           </div>
-          <button class="btn btn-primary" id="calc-guardar" type="button">Guardar cálculo</button>
+          <button class="btn btn-primary" id="calc-guardar" type="button" data-i18n="calc.save">Guardar cálculo</button>
         </div>
 
         <!-- Resultados -->
         <div class="calc-card">
           <div class="res-grid">
-            <div class="res-item"><span>Extraer</span><strong id="res-unidades">—</strong></div>
-            <div class="res-item"><span>Volumen</span><strong id="res-ml">—</strong></div>
-            <div class="res-item"><span>Concentración</span><strong id="res-conc">—</strong></div>
-            <div class="res-item"><span>Dosis por vial</span><strong id="res-dosis-vial">—</strong></div>
+            <div class="res-item"><span data-i18n="calc.extract">Extraer</span><strong id="res-unidades">—</strong></div>
+            <div class="res-item"><span data-i18n="calc.volume">Volumen</span><strong id="res-ml">—</strong></div>
+            <div class="res-item"><span data-i18n="calc.conc">Concentración</span><strong id="res-conc">—</strong></div>
+            <div class="res-item"><span data-i18n="calc.doses">Dosis por vial</span><strong id="res-dosis-vial">—</strong></div>
           </div>
           <div class="syr">
             <div class="syr-fill" id="syr-fill"></div>
             <div class="syr-marker" id="syr-marker"></div>
           </div>
           <div class="syr-ticks" id="syr-ticks"></div>
-          <p class="calc-aviso">Jeringa de insulina estándar: 100 UI = 1 mL. Herramienta de referencia para laboratorio — verifica siempre tus cálculos. Solo uso en investigación.</p>
+          <p class="calc-aviso" data-i18n="calc.notice">Jeringa de insulina estándar: 100 UI = 1 mL. Herramienta de referencia para laboratorio — verifica siempre tus cálculos. Solo uso en investigación.</p>
         </div>
       </div>
 
       <div class="calc-card" style="margin-top:1.6rem">
-        <h3 class="mono" style="color:var(--terra);font-size:0.85rem;letter-spacing:0.18em;margin-bottom:0.8rem">Cálculos guardados</h3>
+        <h3 class="mono" style="color:var(--terra);font-size:0.85rem;letter-spacing:0.18em;margin-bottom:0.8rem" data-i18n="calc.saved">Cálculos guardados</h3>
         <div id="saved-list"></div>
       </div>
     </section>
   </main>
 
   <footer class="footer mono">
-    <p class="footer-brand">PEPTIVA — Calculadora de reconstitución</p>
-    <p class="footer-legal">Herramienta de referencia para investigación científica. No constituye instrucción médica ni de dosificación para uso humano.</p>
+    <p class="footer-brand" data-i18n="calc.footer.brand">PEPTIVA — Calculadora de reconstitución</p>
+    <p class="footer-legal" data-i18n="calc.footer.legal">Herramienta de referencia para investigación científica. No constituye instrucción médica ni de dosificación para uso humano.</p>
     <p class="footer-copy">© 2026 PEPTIVA<span id="visitas"></span></p>
   </footer>
 

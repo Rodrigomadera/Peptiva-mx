@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../img/favicon.png">
   <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/i18n.js"></script>
   <style>
     body { background: {'#faf6f1' if ES_PEPTIVA else 'var(--bg)'}; }
     .pp-wrap { max-width: 1020px; margin: 0 auto; padding: 1.6rem 1.4rem 3rem; }
@@ -67,13 +68,13 @@
   <header class="hud-header">
     <a class="logo" href="../sitio.html">PEPTIVA</a>
     <nav class="main-nav">
-      <a href="../sitio.html#catalogo">Catálogo</a>
-      <a href="../calculadora.html">Calculadora</a>
-      <a href="../sitio.html#contacto">Contacto</a>
+      <a href="../sitio.html#catalogo" data-i18n="nav.catalog">Catálogo</a>
+      <a href="../calculadora.html" data-i18n="nav.calc">Calculadora</a>
+      <a href="../sitio.html#contacto" data-i18n="nav.contact">Contacto</a>
     </nav>
   </header>
   <main class="pp-wrap">
-    <p class="pp-crumb"><a href="../sitio.html">← Volver</a> &nbsp;|&nbsp; <a href="../sitio.html">Inicio</a> / <a href="../sitio.html#catalogo">Catálogo</a> / Metabólico / Semaglutida 5 mg</p>
+    <p class="pp-crumb"><a href="../sitio.html" data-i18n="nav.back">← Volver</a> &nbsp;|&nbsp; <a href="../sitio.html" data-i18n="nav.home">Inicio</a> / <a href="../sitio.html#catalogo" data-i18n="nav.catalog">Catálogo</a> / <span id="pp-cat-crumb">Metabólico</span> / Semaglutida 5 mg</p>
     <div class="pp-grid">
       <div class="pp-imgcard">
         <img src="../img/vials/semaglutida-5.png" alt="Vial de Semaglutida 5 mg">
@@ -81,48 +82,70 @@
       </div>
       <div>
         <h1 class="pp-name">Semaglutida 5 mg</h1>
-        <p class="pp-cat">Metabólico</p>
-        <span class="pp-chip">✓ Pureza ≥99% (HPLC, ver COA)</span>
-        <div class="pp-ship">▣ <strong>Envío DHL a todo México</strong> · Entrega estimada 2-5 días hábiles · Empaque discreto</div>
+        <p class="pp-cat" id="pp-cat">Metabólico</p>
+        <span class="pp-chip" data-i18n="pp.chip">✓ Pureza ≥99% (HPLC, ver COA)</span>
+        <div class="pp-ship" data-i18n-html="pp.ship">▣ <strong>Envío DHL a todo México</strong> · Entrega estimada 2-5 días hábiles · Empaque discreto</div>
         <p class="pp-price">$969 <span>MXN</span></p>
         <div class="pp-actions">
-          <button class="btn btn-primary" id="pp-add" type="button">▸ Agregar al pedido</button>
-          <a class="btn btn-ghost" href="https://wa.me/529516383849?text=Hola%20PEPTIVA%2C%20me%20interesa%20Semaglutida%205%20mg" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          <button class="btn btn-primary" id="pp-add" type="button" data-i18n="pp.add">▸ Agregar al pedido</button>
+          <a class="btn btn-ghost" href="https://wa.me/529516383849?text=Hola%20PEPTIVA%2C%20me%20interesa%20Semaglutida%205%20mg" target="_blank" rel="noopener" data-i18n="pp.wa">Pedir por WhatsApp</a>
         </div>
-        <p class="pp-note">Uso exclusivo en investigación científica · Pureza verificada por HPLC</p>
-        <div class="pp-research"><strong>En investigación:</strong> Agonista de GLP-1 ampliamente estudiado en modelos de metabolismo energético y control glucémico.</div>
+        <p class="pp-note" data-i18n="pp.note">Uso exclusivo en investigación científica · Pureza verificada por HPLC</p>
+        <div class="pp-research"><strong data-i18n="pp.research">En investigación:</strong> <span id="pp-desc">Agonista de GLP-1 ampliamente estudiado en modelos de metabolismo energético y control glucémico.</span></div>
         <div class="pp-links">
-          <a href="https://wa.me/529516383849?text=Hola%2C%20solicito%20el%20COA%20del%20lote%20de%20Semaglutida%205%20mg" target="_blank" rel="noopener">▣ Ver COA</a>
-          <a href="https://wa.me/529516383849" target="_blank" rel="noopener">◌ Dudas</a>
-          <button id="pp-share" type="button">⇗ Compartir</button>
+          <a href="https://wa.me/529516383849?text=Hola%2C%20solicito%20el%20COA%20del%20lote%20de%20Semaglutida%205%20mg" target="_blank" rel="noopener" data-i18n="pp.coa">▣ Ver COA</a>
+          <a href="https://wa.me/529516383849" target="_blank" rel="noopener" data-i18n="pp.doubts">◌ Dudas</a>
+          <button id="pp-share" type="button" data-i18n="pp.share">⇗ Compartir</button>
         </div>
       </div>
     </div>
-    <ul class="pp-specs"><li>Pureza ≥99% verificada por HPLC</li><li>Identidad molecular confirmada por espectrometría de masas (MS)</li><li>Certificado de Análisis (COA) trazable por lote</li><li>Forma: polvo liofilizado en vial sellado al vacío</li><li>Almacenamiento recomendado: -20 °C, protegido de luz y humedad</li><li>Para uso en investigación solamente</li></ul>
+    <ul class="pp-specs" id="pp-specs"><li>Pureza ≥99% verificada por HPLC</li><li>Identidad molecular confirmada por espectrometría de masas (MS)</li><li>Certificado de Análisis (COA) trazable por lote</li><li>Forma: polvo liofilizado en vial sellado al vacío</li><li>Almacenamiento recomendado: -20 °C, protegido de luz y humedad</li><li>Para uso en investigación solamente</li></ul>
     <section class="pp-testi">
-      <h2>Lo que dicen nuestros clientes</h2>
+      <h2 data-i18n="pp.testi.title">Lo que dicen nuestros clientes</h2>
       <div id="testi-list"></div>
       <form class="testi-form" id="testi-form">
-        <h3>Comparte tu experiencia</h3>
-        <input type="text" id="tf-nombre" placeholder="Tu nombre (o iniciales)" maxlength="40" required>
-        <textarea id="tf-texto" placeholder="Cuéntanos cómo fue tu experiencia con este producto..." maxlength="500" required></textarea>
-        <button class="btn btn-primary" type="submit">▸ Enviar testimonio</button>
-        <p class="testi-ok" id="tf-ok">✓ Gracias — tu testimonio se publicará tras validación.</p>
-        <p class="testi-mod">// Se publica tras revisión del equipo. Sin spam ni datos personales.</p>
+        <h3 data-i18n="pp.testi.form">Comparte tu experiencia</h3>
+        <input type="text" id="tf-nombre" placeholder="Tu nombre (o iniciales)" maxlength="40" required data-i18n-ph="pp.testi.name.ph">
+        <textarea id="tf-texto" placeholder="Cuéntanos cómo fue tu experiencia con este producto..." maxlength="500" required data-i18n-ph="pp.testi.text.ph"></textarea>
+        <button class="btn btn-primary" type="submit" data-i18n="pp.testi.send">▸ Enviar testimonio</button>
+        <p class="testi-ok" id="tf-ok" data-i18n="pp.testi.ok">✓ Gracias — tu testimonio se publicará tras validación.</p>
+        <p class="testi-mod" data-i18n="pp.testi.mod">// Se publica tras revisión del equipo. Sin spam ni datos personales.</p>
       </form>
     </section>
   </main>
   <footer class="footer mono">
-    <p class="footer-legal">Para uso en investigación solamente. No es medicamento, suplemento ni alimento.</p>
+    <p class="footer-legal" data-i18n="pp.footer.legal">Para uso en investigación solamente. No es medicamento, suplemento ni alimento.</p>
     <p class="footer-copy">© 2026 PEPTIVA</p>
   </footer>
   <a class="wa-float" href="https://wa.me/529516383849?text=Hola%20PEPTIVA%2C%20me%20interesa%20Semaglutida%205%20mg" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.6.2-.8l.5-.6c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9.9-1.1 2.2-.2 3.9a12.6 12.6 0 0 0 4.8 4.5c1.8.8 2.5.9 3.4.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.2-.3-.2-.6-.3z"/></svg>
   </a>
+  <script>const DESC_EN = "GLP-1 agonist widely studied in energy metabolism and glycemic control models."; const CAT_EN = "Metabolic"; const SPECS_EN = ["≥99% purity verified by HPLC", "Molecular identity confirmed by mass spectrometry (MS)", "Certificate of Analysis (COA) traceable by batch", "Form: lyophilized powder in vacuum-sealed vial", "Recommended storage: -20 °C, protected from light and humidity", "For research use only"];</script>
   <script>const APPS_FALLBACK = "";</script>
   <script src="../js/testimonios.js"></script>
   <script>
     (function () {
+      // i18n: T() viene de ../js/i18n.js de la marca; sin él se usa el español del HTML
+      const TT = (k, es) => (window.T ? T(k) : es);
+      // descripción, categoría y specs en inglés cuando LANG=en
+      function aplicarLang() {
+        if (window.LANG !== "en") return;
+        if (typeof DESC_EN !== "undefined") {
+          const d = document.getElementById("pp-desc");
+          if (d) d.textContent = DESC_EN;
+        }
+        if (typeof CAT_EN !== "undefined") {
+          const c1 = document.getElementById("pp-cat");
+          const c2 = document.getElementById("pp-cat-crumb");
+          if (c1) c1.textContent = CAT_EN;
+          if (c2) c2.textContent = CAT_EN;
+        }
+        if (typeof SPECS_EN !== "undefined" && SPECS_EN.length) {
+          document.getElementById("pp-specs").innerHTML = SPECS_EN.map(s => `<li>${s}</li>`).join("");
+        }
+      }
+      document.addEventListener("i18n:applied", aplicarLang);
+      aplicarLang();
       // agregar al pedido (mismo localStorage del carrito del sitio)
       document.getElementById("pp-add").addEventListener("click", function () {
         const KEY = "peptinator_cart";
@@ -132,7 +155,7 @@
         if (it) it.qty = Math.min(it.qty + 1, 99); else cart.push({ id: "semaglutida-5", qty: 1 });
         localStorage.setItem(KEY, JSON.stringify(cart));
         const b = document.getElementById("pp-add");
-        b.textContent = "✓ Agregado — ver pedido";
+        b.textContent = TT("pp.added", "✓ Agregado — ver pedido");
         b.onclick = () => location.href = "../sitio.html#catalogo";
       });
       // compartir
@@ -141,7 +164,7 @@
         if (navigator.share) { navigator.share({ title: t, url: location.href }).catch(() => {}); }
         else {
           navigator.clipboard.writeText(location.href).then(() => {
-            document.getElementById("pp-share").textContent = "✓ Enlace copiado";
+            document.getElementById("pp-share").textContent = TT("pp.copied", "✓ Enlace copiado");
           });
         }
       });
@@ -149,15 +172,13 @@
       const lista = document.getElementById("testi-list");
       const SHEET_T = "https://docs.google.com/spreadsheets/d/1EFK3XeOig1J8VEntEz6QEFVpFKdPpZA19ZwUvT5Iuxk/gviz/tq?tqx=out:csv&sheet=testimonios";
       fetch(SHEET_T).then(r => r.text()).then(t => {
-        const filas = t.trim().split(/
-?
-/).slice(1).map(l => l.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(c => c.replace(/^"|"$/g, "").trim()));
+        const filas = t.trim().split(/\r?\n/).slice(1).map(l => l.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(c => c.replace(/^"|"$/g, "").trim()));
         const items = filas.filter(f => f[1] === "semaglutida-5" && f[4] === "aprobado");
         lista.innerHTML = items.length
           ? items.map(f => `<div class="testi-card"><p>"${f[3]}"</p><span>${f[2]} · ${f[0]}</span></div>`).join("")
-          : '<div class="testi-empty">Aún no hay testimonios publicados de este producto.<br>Sé el primero en compartir tu experiencia ↓</div>';
+          : '<div class="testi-empty">' + TT("pp.testi.empty", "Aún no hay testimonios publicados de este producto.<br>Sé el primero en compartir tu experiencia ↓") + "</div>";
       }).catch(() => {
-        lista.innerHTML = '<div class="testi-empty">Sé el primero en compartir tu experiencia ↓</div>';
+        lista.innerHTML = '<div class="testi-empty">' + TT("pp.testi.empty2", "Sé el primero en compartir tu experiencia ↓") + '</div>';
       });
 
       // envio del formulario (Apps Script, pestaña "testimonios", estado pendiente)

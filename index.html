@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="es-MX" data-i18n-title="gate.title">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,19 +21,19 @@
   <main class="gate-wrap">
     <!-- ====== Verificación ====== -->
     <div class="gate-card" id="gate-card">
-      <p class="mono gate-kicker"><span class="blink-dot"></span> Verificación de acceso</p>
+      <p class="mono gate-kicker"><span class="blink-dot"></span> <span data-i18n="gate.kicker">Verificación de acceso</span></p>
       <h1 class="logo gate-logo">PEPTIVA</h1>
-      <p class="gate-slogan">Ciencia para el bienestar femenino</p>
-      <p class="gate-text">
+      <p class="gate-slogan" data-i18n="gate.slogan">Ciencia para el bienestar femenino</p>
+      <p class="gate-text" data-i18n-html="gate.text">
         Este sitio contiene compuestos destinados a investigación científica
         y está dirigido exclusivamente a <strong>mayores de 18 años</strong>.
       </p>
-      <p class="mono gate-question">Confirma tu edad para continuar</p>
+      <p class="mono gate-question" data-i18n="gate.question">Confirma tu edad para continuar</p>
       <div class="gate-actions">
-        <button class="btn btn-primary gate-btn" id="btn-adult" type="button">Tengo 18 años o más</button>
-        <button class="btn btn-ghost gate-btn" id="btn-minor" type="button">Soy menor de 18</button>
+        <button class="btn btn-primary gate-btn" id="btn-adult" type="button" data-i18n="gate.adult">Tengo 18 años o más</button>
+        <button class="btn btn-ghost gate-btn" id="btn-minor" type="button" data-i18n="gate.minor">Soy menor de 18</button>
       </div>
-      <p class="mono gate-legal">
+      <p class="mono gate-legal" data-i18n="gate.legal">
         Al entrar aceptas que todos los productos son para uso en investigación solamente.
         No son medicamentos, suplementos ni alimentos.
       </p>
@@ -41,16 +41,17 @@
 
     <!-- ====== Acceso denegado ====== -->
     <div class="gate-card gate-denied" id="gate-denied" hidden>
-      <p class="mono gate-kicker denied-kicker"><span class="blink-dot"></span> Acceso denegado</p>
-      <h1 class="gate-denied-title">SITIO SOLO PARA<br>MAYORES DE EDAD</h1>
-      <p class="gate-text">
+      <p class="mono gate-kicker denied-kicker"><span class="blink-dot"></span> <span data-i18n="gate.denied.kicker">Acceso denegado</span></p>
+      <h1 class="gate-denied-title" data-i18n-html="gate.denied.title">SITIO SOLO PARA<br>MAYORES DE EDAD</h1>
+      <p class="gate-text" data-i18n="gate.denied.text">
         PEPTIVA es un sitio destinado exclusivamente a personas mayores de 18 años.
         No podemos darte acceso. Gracias por tu honestidad.
       </p>
-      <p class="mono gate-legal">Vuelve cuando cumplas 18 años.</p>
+      <p class="mono gate-legal" data-i18n="gate.denied.legal">Vuelve cuando cumplas 18 años.</p>
     </div>
   </main>
 
+  <script src="js/i18n.js"></script>
   <script>
     (function () {
       var btnAdult = document.getElementById("btn-adult");
